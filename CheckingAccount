@@ -1,0 +1,19 @@
+package lastlab;
+
+public class CheckingAccount extends BankAccount{
+
+private static final double FEE = 0.15; // constant class variable FEE
+
+// constructor
+public CheckingAccount(String name, double initialAmount)
+{
+super(name,initialAmount);
+setAccountNumber(getAccountNumber()+"-10");
+}
+
+// overridden withdraw method
+public boolean withdraw(double amount)
+{
+return super.withdraw(amount+FEE);
+}
+}
