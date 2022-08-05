@@ -1,0 +1,36 @@
+package lastlab;
+
+public class SavingsAccount extends BankAccount{
+
+	// class instance variables
+	private double rate = 0.025;
+	private int savingsNumber = 0;
+	private String accountNumber;
+
+	// constructor
+	public SavingsAccount(String name, double initialBalance)
+	{
+	super(name,initialBalance);
+	accountNumber = super.getAccountNumber()+"-"+savingsNumber;
+	}
+
+	// copy constructor
+	public SavingsAccount(SavingsAccount other, double initialBalance)
+	{
+	super(other,initialBalance);
+	savingsNumber = other.savingsNumber+1;
+	accountNumber = super.getAccountNumber()+"-"+savingsNumber;
+	}
+
+	// method to deposit monthly interest to account
+	public void postInterest()
+	{
+	deposit(getBalance()*(rate/12));
+	}
+
+	// overridden getAccountNumber
+	public String getAccountNumber()
+	{
+	return accountNumber;
+	}
+	}
